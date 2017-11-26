@@ -18,18 +18,22 @@ package com.example.artistle.testforijevsk;
  import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String BASE_URL = "http://gitlab.65apps.com/65gb/static/raw/master/";
+
+    private static final String BASE_URL = "http://gitlab.65apps.com/65gb/static/raw/master/";
     private RecyclerView recyclerView;
     private CompositeDisposable compositeDisposable;
     private UserAdapter adapter;
-    private List<UserModel.Response> InfoListModels;
+    private List<UserModel.Response> infoListModels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppDefault);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         compositeDisposable = new CompositeDisposable();
+
         initRecyclerView();
         loadJSON();
     }
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
     }
@@ -47,17 +52,19 @@ public class MainActivity extends AppCompatActivity {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(UserRetrofit.class);
+
         compositeDisposable.add(userRetrofit.register()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError));
     }
     private void handleResponse(UserModel.Example userList) {
-        InfoListModels = userList.getResponse();
-        adapter = new UserAdapter(InfoListModels);
+        infoListModels = userList.getResponse();
+        adapter = new UserAdapter(infoListModels);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        Contacts contacts = new Contacts(InfoListModels);
+
+        Contacts contacts = new Contacts(infoListModels);
         contacts.save();
     }
     private void handleError(Throwable error) {

@@ -15,6 +15,7 @@ import java.util.List;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     private List<UserModel.Response> userListModels;
+
     public UserAdapter(List<UserModel.Response> userListModels) {
         this.userListModels = userListModels;
     }
