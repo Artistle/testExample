@@ -1,4 +1,4 @@
-package com.example.artistle.testforijevsk.Adapter;
+package com.example.artistle.testforijevsk.Presenter.Adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

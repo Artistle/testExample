@@ -1,4 +1,4 @@
-package com.example.artistle.testforijevsk.Retrofit;
+package com.example.artistle.testforijevsk.Presenter.Retrofit;
 
 import com.example.artistle.testforijevsk.Model.UserModel;
 

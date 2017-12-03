@@ -1,4 +1,4 @@
-package com.example.artistle.testforijevsk.Data;
+package com.example.artistle.testforijevsk.Model.Data;
 
 import com.example.artistle.testforijevsk.Model.UserModel;
 import com.orm.SugarRecord;
