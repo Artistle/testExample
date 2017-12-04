@@ -6,6 +6,7 @@ package com.example.artistle.testforijevsk.Activity;
  import com.arellomobile.mvp.MvpActivity;
  import com.arellomobile.mvp.presenter.InjectPresenter;
  import com.example.artistle.testforijevsk.Presenter.Adapter.UserAdapter;
+ import com.example.artistle.testforijevsk.Data.DataRx;
  import com.example.artistle.testforijevsk.Presenter.Presenter;
  import com.example.artistle.testforijevsk.R;
  import com.example.artistle.testforijevsk.View.View;
@@ -25,6 +26,8 @@ public class MainActivity extends MvpActivity implements View {
         setContentView(R.layout.activity_main);
         initRecyclerView();
         presenter.loadJson();
+
+        new DataRx().Load();
     }
     private void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);

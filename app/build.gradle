@@ -46,4 +46,7 @@ dependencies {
     implementation 'com.arello-mobile:moxy:+'
     implementation 'com.arello-mobile:moxy-android:+'
     provided 'com.arello-mobile:moxy-compiler:+'
+    compile 'com.google.dagger:dagger:2.0.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
 }
