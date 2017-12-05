@@ -1,5 +1,7 @@
 package com.example.artistle.testforijevsk.Data;
 
+import com.arellomobile.mvp.InjectViewState;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.artistle.testforijevsk.DI.RetrofitDI;
 import com.example.artistle.testforijevsk.Model.UserModel;
 import com.orm.SugarRecord;
@@ -18,7 +20,8 @@ public class DataRx extends SugarRecord {
     RetrofitDI retrofitDI = new RetrofitDI();
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private List<UserModel.Response> list;
+    private List<UserModel.Response> list = new ArrayList<UserModel.Response>();
+    private DbHelper dbHelper;
 
     public void Load(){
         compositeDisposable.add(retrofitDI.retrofit().register()
@@ -30,9 +33,14 @@ public class DataRx extends SugarRecord {
 
     }
     private void handleResponse(UserModel.Example example) {
-        list = new ArrayList<UserModel.Response>();
         list = example.getResponse();
-        DbHelper databaseObject = new DbHelper(list);
-        databaseObject.save();
+        initDB(list);
     }
+
+    public void initDB(List<UserModel.Response> listDB){
+        dbHelper = new DbHelper(listDB);
+        dbHelper.save();
+    }
+
+
 }

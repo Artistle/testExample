@@ -1,5 +1,7 @@
 package com.example.artistle.testforijevsk.Presenter;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;
@@ -47,5 +49,9 @@ public class Presenter extends MvpPresenter<View> {
         adapter.notifyDataSetChanged();
 
         getViewState().setAdapter(adapter);
+    }
+
+    public void initRecyclerView(){
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.artistle.testforijevsk.Activity;
  import android.os.Bundle;
+ import android.provider.ContactsContract;
  import android.support.v7.widget.LinearLayoutManager;
  import android.support.v7.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ package com.example.artistle.testforijevsk.Activity;
 
 public class MainActivity extends MvpActivity implements View {
     private RecyclerView recyclerView;
+    private DataRx dataRx;
 
     @InjectPresenter
     Presenter presenter;
@@ -24,10 +26,12 @@ public class MainActivity extends MvpActivity implements View {
         setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initRecyclerView();
-        presenter.loadJson();
 
-        new DataRx().Load();
+        dataRx = new DataRx();
+        initRecyclerView();
+        
+        presenter.loadJson();
+        dataRx.Load();
     }
     private void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -38,6 +42,11 @@ public class MainActivity extends MvpActivity implements View {
     @Override
     public void setAdapter(UserAdapter adapter) {
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void initRecyclerView(RecyclerView.LayoutManager layoutManager) {
+
     }
 
     @Override
