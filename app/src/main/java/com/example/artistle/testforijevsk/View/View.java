@@ -11,5 +11,4 @@ import com.example.artistle.testforijevsk.Presenter.Adapter.UserAdapter;
 
 public interface View extends MvpView {
     public void setAdapter(UserAdapter adapter);
-    public void initRecyclerView(RecyclerView.LayoutManager layoutManager);
 }

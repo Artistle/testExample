@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.example.artistle.testforijevsk.Data.DbHelper;
 import com.example.artistle.testforijevsk.Model.UserModel;
 import com.example.artistle.testforijevsk.R;
 

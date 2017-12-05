@@ -15,7 +15,4 @@ public class DbHelper extends SugarRecord {
         this.responseList = responseList;
     }
 
-    public void db(){
-
-    }
 }

@@ -29,7 +29,7 @@ public class MainActivity extends MvpActivity implements View {
 
         dataRx = new DataRx();
         initRecyclerView();
-        
+
         presenter.loadJson();
         dataRx.Load();
     }
@@ -42,11 +42,6 @@ public class MainActivity extends MvpActivity implements View {
     @Override
     public void setAdapter(UserAdapter adapter) {
         recyclerView.setAdapter(adapter);
-    }
-
-    @Override
-    public void initRecyclerView(RecyclerView.LayoutManager layoutManager) {
-
     }
 
     @Override

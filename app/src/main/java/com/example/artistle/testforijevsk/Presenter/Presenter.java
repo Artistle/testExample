@@ -51,7 +51,4 @@ public class Presenter extends MvpPresenter<View> {
         getViewState().setAdapter(adapter);
     }
 
-    public void initRecyclerView(){
-
-    }
 }
